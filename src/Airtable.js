@@ -4,30 +4,15 @@ import axios from 'axios'
 /**this url comes from the serveless function*/
 const url = '/api/products'
 
-/**serveless-with-react-practice app version 2 - Airtable
+/**serveless-with-react-practice app version 3 - Airtable
  * Component - Features ( this is the front-end ):
  * 
- *      --> Making a const 'url' where i keep the
- *          API url value - the products API-
- * 
- *      --> Building state to keep the data once
- *         get fetched.
- * 
- *      --> Building fetchData to fetch the data 
- *          from the serveless function.  
- * 
- *      --> Invoking using useEffect the serveless
- *          function the 'fetchData' to check that
- *          i'm getting the products data in the 
- *          front-end   
+ *      --> Building the return in the front-end   
  * 
  * Note: By this version i already get the 'data' from
  * the back-end running in this app, i can chek it out
  * by JavaConsole > Components > Airtable -checking
- * the state-.
- * 
- *The next version will focus in building the return 
- *in the front-end 
+ * the state-. 
  */
 
 const Airtable = () => {
@@ -51,7 +36,27 @@ const Airtable = () => {
     },[])
 
     return(
-        <div>hello from airtable</div>
+        <section className="section section-center">
+            <div className="title">
+                <h2>Airtable</h2>
+                <div className="title-underline"/>
+            </div>
+            <div className="products">
+                {products.map((product) => {
+                    const { id, name, url, price } = product;
+                    
+                    return(
+                        <article className="product" key={id}>
+                            <img src={url} alt={name}/>
+                            <div className="info">
+                                <h5>{name}</h5>
+                                <h5 className="price">{price}</h5>
+                            </div>
+                        </article>
+                    )
+                })}
+            </div>
+        </section>
     )
 }
 
