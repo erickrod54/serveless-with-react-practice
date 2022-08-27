@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 /**this url comes from the serveless function*/
 const url = '/api/products'
 
-/**serveless-with-react-practice app version 3 - Airtable
+/**serveless-with-react-practice app version 4 - Airtable
  * Component - Features ( this is the front-end ):
  * 
- *      --> Building the return in the front-end   
+ *      --> Importing and with 'Link' Component
+ *          the 'Product' image.
  * 
- * Note: By this version i already get the 'data' from
- * the back-end running in this app, i can chek it out
- * by JavaConsole > Components > Airtable -checking
- * the state-. 
+ * Note: the 'Link' Component has a 'to' attribute, i'll
+ * route with '/${id}' that is in the routing the same as
+ * '/productID' that has as child the 'Product' Component
  */
 
 const Airtable = () => {
@@ -46,13 +47,13 @@ const Airtable = () => {
                     const { id, name, url, price } = product;
                     
                     return(
-                        <article className="product" key={id}>
+                        <Link to={`/${id}`} className="product" key={id}>
                             <img src={url} alt={name}/>
                             <div className="info">
                                 <h5>{name}</h5>
-                                <h5 className="price">{price}</h5>
+                                <h5 className="price">${price}</h5>
                             </div>
-                        </article>
+                        </Link>
                     )
                 })}
             </div>
