@@ -3,28 +3,14 @@ import axios from "axios";
 import { Link, useParams } from 'react-router-dom'
 
 
-/**serveless-with-react-practice app version 5 - Product
+/**serveless-with-react-practice app version 6 - Product
  * Component - Features:
  * 
- *      --> Building states to handle the 'fetchData'.
+ *      --> Building the return for the single 'Product'
+ *          page
  * 
- *      --> Importing and placing 'useParams' to get
- *          the product 'id' and named as 'productID'.
- * 
- *      --> Building the 'url' to use it on the 
- *          'fetchData'.
- * 
- *      --> Building the 'fetchData' to set the product 
- *          data as the 'product' state value.
- * 
- *      --> Implementing 'useEffect' to invoke the
- *          'fetchData' once the component mounts.    
- * 
- * Note: i can test the api url, just to check how
- * i'm destructuring the product props:
- * 
- * 
- *  http://localhost:8888/api/products?id=rec5yZ55DbuLPyKKz
+ * Note: By this version the single product should be
+ * render 
  */
 
 const Product = () => {
@@ -92,7 +78,27 @@ const Product = () => {
     console.log('the product id is ==> ', productID,' and the name associated ==>', name)
 
     return(
-        <h2>single product page</h2>
+         <section className="section section-center">
+            <Link to='/' className="link">
+                back home
+            </Link>
+            <div>
+                <div className="title">
+                    <h2>{name}</h2>
+                    <div className="title-underline"/>
+                </div>
+                <article className='single-product'>
+                    <img className='single-product-img' 
+                    src={image[0].url} 
+                    alt={name}/>
+                <div>
+                    <h5>{name}</h5>
+                    <h5 className="price">${price}</h5>
+                    <p>{desc}</p>
+                </div>
+                </article>
+            </div>
+         </section>
         )
     }
     
