@@ -1,30 +1,26 @@
 import Basic from "./Basic";
 import Airtable from "./Airtable";
-/** Serveless-with-react-practice version 1 - App js
- * file - Features: 
+import { ServelessReactProvider } from "./context";
+
+/**serveless-with-react-practice app version 6.01 - Basic js file 
+ * - Features:
  * 
- *        --> Importing and placing 'Basic' 
- *            Component.
+ *      --> Wrapping with 'ServelessReactProvider' the App.
  * 
- *        --> Importing and placing 'Airtable'
- *            Component.
+ *      --> Changing versioning to two digits.   
  * 
- * Note: These Components handle fetching API's the
- * following ways:
- * 
- *      --> 'Basic' Component ----> fetching an
- *            existing API just having the url-
- * 
- *      --> 'Airtable' Component--> i create a 
- *           back-end with serveless functions
- *           and run the API in my own local 
- *           server
+ * Note: this api 'url' was previusly built for the 
+ * serveless-functions-practice, this practice is
+ * in order to use it with a react front-end.
  */
+
 
 function App() {
   return <>
-    <Basic />
-    <Airtable />
+    <ServelessReactProvider>
+      <Basic />
+      <Airtable />
+    </ServelessReactProvider>
   </>
 }
 
