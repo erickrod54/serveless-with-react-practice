@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-const url = 'https://serveless-functions-practice.netlify.app/api/2-basic-api'
+import { useServelessContext } from "./context";
 
-/**serveless-with-react-practice app version 2 - Basic js file 
+/**serveless-with-react-practice app version 6.02 - Basic js file 
  * - Features:
  * 
- *      --> Fetching the data from the API 'url'
- *          - this way i test that i can fetch an
- *            existing API jus having the url-
- * 
- *      --> Building the return for the front-end.   
+ *      --> Destructuring 'url' from the context.  
  * 
  * Note: this api 'url' was previusly built for the 
  * serveless-functions-practice, this practice is
@@ -18,6 +14,8 @@ const url = 'https://serveless-functions-practice.netlify.app/api/2-basic-api'
 
 const Basic = () => {
 
+    const { url } = useServelessContext();
+   
     const [ products, setProducts ] = useState([]);
 
     /**here i fetch the data */
